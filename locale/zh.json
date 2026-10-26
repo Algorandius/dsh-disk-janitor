@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "磁盘清理",
+    "description": "查看 DeepSeek Harness 的磁盘占用，一键清理可再生的缓存：Windows Bash 运行时副本、图片预览与会话投影缓存、闲置的 dsh-* 临时目录、界面渲染缓存，以及（可选）长期未活动的会话日志。"
+  }
+}

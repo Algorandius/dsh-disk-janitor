@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Disk Janitor",
+    "description": "Inspect DeepSeek Harness disk usage and clear regenerable caches: the Windows Bash runtime copy, image preview and projection caches, stale dsh-* temp folders, Electron renderer caches, and (optional) idle session logs."
+  }
+}

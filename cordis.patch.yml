@@ -1,0 +1,9 @@
+# Disk Janitor bundle layer.
+#
+# One row: the Host half owns scanning, deletion and the HTTP routes the
+# Settings page talks to. No `config` block on purpose — tunables live in
+# $DSH_HOME/dsh-disk-janitor.json so the page can change them without a
+# restart or a profile patch edit.
+- insert:
+    - id: disk-janitor
+      name: 'dsh-disk-janitor'

@@ -1,0 +1,25 @@
+name: publish
+
+# Publishes to npm when a v* tag is pushed. Add the repository secret
+# NPM_TOKEN (a Granular Access Token with read+write on this package) first.
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org
+      - name: Verify the manifest still names this package
+        run: node -e "const p=require('./package.json'); if(p.name!=='dsh-disk-janitor') throw new Error('unexpected package name: '+p.name)"
+      - run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
