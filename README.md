@@ -8,14 +8,14 @@ DeepSeek Harness 的磁盘清理插件：看清 DSH 到底占了哪块盘，再�
 
 ## 清理项
 
-全部是**可再生**的缓存，不碰会话、附件、插件与运行时：
+除 `acl-backups`（权限修复留下的回滚记录，**不是缓存**）之外，全部是**可再生**的缓存；两类都不碰会话、附件、插件与运行时：
 
 | id | 内容 | 说明 |
 | --- | --- | --- |
 | `bash-runtime` | `$DSH_HOME/dsh-ops/bash-ipc/*` | Windows 沙箱 Bash 的解压副本。删除后下一次终端调用会重新解压（首次略慢），不影响任何数据。**通常最大的一块。** |
 | `request-image-cache` | `$DSH_HOME/cache/attachments` | 为模型请求生成的图片副本，按需重建 |
 | `projection-cache` | `$DSH_HOME/storages/session_projcache` | 会话视图的派生缓存，清理后首次打开会话稍慢 |
-| `acl-backups` | `$DSH_HOME/dsh-ops/acl-backups` | 修复文件权限时留下的回滚记录 |
+| `acl-backups` | `$DSH_HOME/dsh-ops/acl-backups` | 修复文件权限时留下的回滚记录（不是缓存，但删掉不影响使用） |
 | `temp-scratch` | 系统临时目录里的 `dsh-*` | 只清理 6 小时前未改动过的 |
 | `desktop-cache` | `%APPDATA%\@deepseek-ai\dsh-desktop\{Cache,GPUCache,…}` | Electron 渲染/着色器缓存，重启 DSH 后重建 |
 
