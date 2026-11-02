@@ -1,7 +1,7 @@
 {
   "name": "dsh-disk-janitor",
-  "version": "0.1.0",
-  "description": "Disk Janitor for DeepSeek Harness: inspect DSH disk usage and clear regenerable caches (Bash runtime copy, preview caches, renderer caches, stale temp folders).",
+  "version": "0.1.1",
+  "description": "Disk Janitor for DeepSeek Harness: inspect DSH disk usage and reclaim only caches that are safe to rebuild, keeping the resources currently in use.",
   "license": "MIT",
   "type": "module",
   "main": "index.js",
