@@ -30,7 +30,7 @@ const AUTO_TICK_MS = 5 * 60_000
 
 /** Human labels used by tool results and logs. */
 const CATEGORY_LABELS = {
-  'bash-runtime': '终端运行时副本',
+  'bash-runtime': '终端运行时旧副本',
   'request-image-cache': '图片预览缓存',
   'projection-cache': '会话投影缓存',
   'acl-backups': '权限修复回滚记录',
@@ -144,7 +144,7 @@ function createTool(janitor, warn) {
     description: [
       'Inspect and clean the disk space DeepSeek Harness leaves behind on this machine.',
       'action="scan" only measures; action="clean" removes the selected cache categories.',
-      'Every category is either regenerable or a safe-to-drop housekeeping record: the Windows Bash sandbox copy, image preview cache, session projection cache, stale dsh-* temp directories and Electron renderer caches, plus ACL repair receipts — rollback records rather than caches, but safe to delete.',
+      'Every category is either regenerable or a safe-to-drop housekeeping record: stale Bash runtime generations left by DSH upgrades (the one in use is always kept), image preview cache, session projection cache, stale dsh-* temp directories and Electron renderer caches, plus ACL repair receipts — rollback records rather than caches, but safe to delete.',
       'Prefer action="scan" first, then a clean limited to the categories the user agreed to.',
     ].join(' '),
     parameters: {

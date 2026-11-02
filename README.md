@@ -12,7 +12,7 @@ DeepSeek Harness 的磁盘清理插件：看清 DSH 到底占了哪块盘，再�
 
 | id | 内容 | 说明 |
 | --- | --- | --- |
-| `bash-runtime` | `$DSH_HOME/dsh-ops/bash-ipc/*` | Windows 沙箱 Bash 的解压副本。删除后下一次终端调用会重新解压（首次略慢），不影响任何数据。**通常最大的一块。** |
+| `bash-runtime` | `$DSH_HOME/dsh-ops/bash-ipc/<旧 identity>` | DSH 或 dsh-ops 升级后留下的**旧版** Bash 解压副本。每一代约 400 MB；只删历史代，**正在使用的最新一代始终保留**。 |
 | `request-image-cache` | `$DSH_HOME/cache/attachments` | 为模型请求生成的图片副本，按需重建 |
 | `projection-cache` | `$DSH_HOME/storages/session_projcache` | 会话视图的派生缓存，清理后首次打开会话稍慢 |
 | `acl-backups` | `$DSH_HOME/dsh-ops/acl-backups` | 修复文件权限时留下的回滚记录（不是缓存，但删掉不影响使用） |
